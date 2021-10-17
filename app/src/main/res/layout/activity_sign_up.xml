@@ -149,7 +149,7 @@
             android:textSize="10sp"
             android:fontFamily="sans-serif-black"
             android:hint="At least 8 characters — the more characters, the better."
-            android:inputType="text"/>
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 

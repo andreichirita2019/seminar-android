@@ -32,7 +32,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:textStyle="bold"
-        android:textSize="25sp"
+        android:textSize="22.5sp"
         android:fontFamily="sans-serif-condensed"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -54,7 +54,7 @@
             android:hint="@string/tie_sign_in_email_address"
             android:textStyle="italic"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -78,7 +78,7 @@
             android:hint="@string/tie_sign_in_password"
             android:textStyle="italic"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +113,7 @@
         android:gravity="center"
         android:hint="@string/tv_main_sign_in_forgot_your_password"
         android:textColor="#61A2E3"
-        android:textSize="12sp">
+        android:textSize="15sp">
     </TextView>
 
     <LinearLayout
