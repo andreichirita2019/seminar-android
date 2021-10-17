@@ -48,7 +48,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_enter_your_email"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -86,7 +86,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_confirm_your_email"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -125,7 +125,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_create_a_password"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -164,7 +164,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_your_name"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -202,7 +202,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_date_of_birth"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -240,7 +240,7 @@
         android:layout_marginStart="30dp"
         android:text="@string/tv_sign_up_activity_sex"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-black">
     </TextView>
 
@@ -268,7 +268,7 @@
                 android:layout_weight="1"
                 android:text="@string/rb_male_option"
                 android:textStyle="bold"
-                android:textSize="10sp"
+                android:textSize="15sp"
                 android:fontFamily="sans-serif-black">
             </RadioButton>
 
@@ -279,7 +279,7 @@
                 android:layout_weight="1"
                 android:text="@string/rb_female_option"
                 android:textStyle="bold"
-                android:textSize="10sp"
+                android:textSize="15sp"
                 android:fontFamily="sans-serif-black">
             </RadioButton>
 

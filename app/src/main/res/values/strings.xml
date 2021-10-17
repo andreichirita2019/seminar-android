@@ -4,7 +4,7 @@
     <string name="tie_sign_in_password">password</string>
     <string name="tie_sign_in_email_address">email address</string>
     <string name="tv_main_sign_in_forgot_your_password">Forgot your password?</string>
-    <string name="tv_main_sign_in_new_to_zocdoc">New to ZocdDocClone?</string>
+    <string name="tv_main_sign_in_new_to_zocdoc">New to ZocDocClone?</string>
     <string name="tv_sign_up_activity_create_an_account">Create an account</string>
     <string name="tv_sign_up_activity_already_have_one_sign_in">Already have one? Sign In</string>
     <string name="tv_sign_up_activity_enter_your_email">Enter your email</string>

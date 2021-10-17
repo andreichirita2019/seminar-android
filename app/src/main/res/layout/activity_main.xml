@@ -32,7 +32,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:fontFamily="sans-serif-condensed"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,6 +55,7 @@
             android:textStyle="italic"
             android:fontFamily="sans-serif-condensed"
             android:textSize="12sp"
+            android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,6 +79,7 @@
             android:textStyle="italic"
             android:fontFamily="sans-serif-condensed"
             android:textSize="12sp"
+            android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
