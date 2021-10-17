@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:background="@color/background_main_grey">
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_create_acc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/tv_sign_up_activity_create_an_account"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_already_have"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_create_acc"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="2.5dp"
+        android:text="@string/tv_sign_up_activity_already_have_one_sign_in"
+        android:textStyle="italic"
+        android:textSize="15sp"
+        android:fontFamily="casual">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_already_have"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_enter_your_email"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sign_up_activity_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_email"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="#B2BAC3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_sign_up_activity_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:hint="@string/tiet_sign_up_activity_example_gmail_com"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-black"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_confirm_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_sign_up_activity_email"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_confirm_your_email"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sign_up_activity_confirm_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_confirm_email"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="#B2BAC3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_sign_up_activity_confirm_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:hint="@string/tiet_sign_up_activity_please_confirm_your_email"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-black"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_sign_up_activity_confirm_email"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_create_a_password"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sign_up_activity_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_password"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="#B2BAC3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_sign_up_activity_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-black"
+            android:hint="At least 8 characters — the more characters, the better."
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_sign_up_activity_password"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_your_name"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sign_up_activity_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_name"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="#B2BAC3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_sign_up_activity_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:hint="@string/tiet_sign_up_activity_first_and_last_name"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-black"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_date_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_sign_up_activity_name"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_date_of_birth"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sign_up_activity_date_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_date_birth"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@color/white"
+        android:textColorHint="#B2BAC3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_sign_up_activity_date_birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:hint="@string/tiet_sign_up_activity_date_format"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-black"
+            android:inputType="date"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_sign_up_activity_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_sign_up_activity_date_birth"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/tv_sign_up_activity_sex"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black">
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/rg_sign_up_activity_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_up_activity_sex"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <LinearLayout
+            android:id="@+id/ll_sign_up_activity_sex_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/rb_sign_up_activity_sex_male"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/rb_male_option"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-black">
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/rb_sign_up_activity_sex_female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/rb_female_option"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-black">
+            </RadioButton>
+
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cb_sign_up_activity_read_terms_of_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_sign_up_activity_sex"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/cb_please_read_and_accept_the_terms_of_use_and_privacy_policy"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textAlignment="center">
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/cb_sign_up_activity_accept_terms_of_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_sign_up_activity_read_terms_of_use"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/cb_i_have_read_and_accept_zocdocclone_authorization"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textAlignment="viewStart">
+    </CheckBox>
+
+    <Button
+        android:id="@+id/btn_sign_up_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_sign_up_activity_accept_terms_of_use"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/btn_sign_up_activity_save_and_continue"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

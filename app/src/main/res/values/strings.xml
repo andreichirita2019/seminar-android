@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ZocDocClone</string>
+    <string name="tv_sign_in_or_create_an_account">Sign in or create an account</string>
+    <string name="tie_sign_in_password">password</string>
+    <string name="tie_sign_in_email_address">email address</string>
+    <string name="tv_main_sign_in_forgot_your_password">Forgot your password?</string>
+    <string name="tv_main_sign_in_new_to_zocdoc">New to ZocdDocClone?</string>
+    <string name="tv_sign_up_activity_create_an_account">Create an account</string>
+    <string name="tv_sign_up_activity_already_have_one_sign_in">Already have one? Sign In</string>
+    <string name="tv_sign_up_activity_enter_your_email">Enter your email</string>
+    <string name="tiet_sign_up_activity_example_gmail_com">example@gmail.com</string>
+    <string name="tv_sign_up_activity_confirm_your_email">Confirm your email</string>
+    <string name="tiet_sign_up_activity_please_confirm_your_email">Please confirm your email</string>
+    <string name="tv_sign_up_activity_create_a_password">Create a password</string>
+    <string name="tv_sign_up_activity_your_name">Your name</string>
+    <string name="tiet_sign_up_activity_first_and_last_name">First and last name</string>
+    <string name="tv_sign_up_activity_date_of_birth">Date of birth</string>
+    <string name="tiet_sign_up_activity_date_format">MM/DD/YYYY</string>
+    <string name="tv_sign_up_activity_sex">Sex</string>
+    <string name="rb_male_option">Male</string>
+    <string name="rb_female_option">Female</string>
+    <string name="cb_please_read_and_accept_the_terms_of_use_and_privacy_policy">Please read and accept the Terms of Use and Privacy Policy</string>
+    <string name="cb_i_have_read_and_accept_zocdocclone_authorization">I have read and accept ZocDocClone Authorization!</string>
+    <string name="btn_sign_up_activity_save_and_continue">Save and continue</string>
+    <string name="btn_main_activity_sign_in">Sign In</string>
+    <string name="btn_main_activity_create_an_account">Create an account</string>
+</resources>
