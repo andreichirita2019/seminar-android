@@ -24,4 +24,10 @@
     <string name="btn_sign_up_activity_save_and_continue">Save and continue</string>
     <string name="btn_main_activity_sign_in">Sign In</string>
     <string name="btn_main_activity_create_an_account">Create an account</string>
+
+    <string-array name="add_faculty_values">
+        <item>CSIE</item>
+        <item>CIG</item>
+        <item>MRK</item>
+    </string-array>
 </resources>

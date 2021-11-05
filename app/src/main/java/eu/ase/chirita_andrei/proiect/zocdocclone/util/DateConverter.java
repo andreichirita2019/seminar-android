@@ -9,12 +9,16 @@ public class DateConverter {
 
     private static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
 
-    public static Date fromString(String value) throws ParseException {
-        return formatter.parse(value);
+    public static Date fromString(String value) {
+        try {
+            return formatter.parse(value);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
-    public static String fromDate(Date value){
-        if(value == null){
+    public static String fromDate(Date value) {
+        if (value == null) {
             return null;
         }
         return formatter.format(value);
