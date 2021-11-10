@@ -21,8 +21,10 @@ public class LoginActivity extends AppCompatActivity {
     public static final String PASSWORD = "PASSWORD";
 
     private Button btnCreateAccount;
+    private Button btnLogin;
     private TextInputEditText tietEmail;
     private TextInputEditText tietPassword;
+
     private Intent intent;
 
     @Override
@@ -35,27 +37,39 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void viewDataFromSignUp(){
-        intent = getIntent();
+        Intent intent = getIntent();
         String email = intent.getStringExtra(EMAIL);
         String password = intent.getStringExtra(PASSWORD);
         tietEmail.setText(email);
         tietPassword.setText(password);
     }
 
+    private View.OnClickListener getStartMainActivity(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        };
+    }
+
     private View.OnClickListener getCreateAccountClickListener(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+                intent = new Intent(getApplicationContext(),SignUpActivity.class);
                 startActivity(intent);
             }
         };
     }
 
     private void initComponents(){
-        btnCreateAccount = findViewById(R.id.btn_main_create_an_account);
-        tietEmail = findViewById(R.id.tie_main_signin_email_address);
-        tietPassword = findViewById(R.id.tie_main_signin_password);
+        btnCreateAccount = findViewById(R.id.btn_login_create_an_account);
+        btnLogin = findViewById(R.id.btn_login_sign_in);
+        tietEmail = findViewById(R.id.tie_login_signin_email_address);
+        tietPassword = findViewById(R.id.tie_login_signin_password);
         btnCreateAccount.setOnClickListener(getCreateAccountClickListener());
+        btnLogin.setOnClickListener(getStartMainActivity());
     }
 }

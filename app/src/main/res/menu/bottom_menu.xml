@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Search"
+        android:icon="@drawable/ic_main_bottombar_btn_search"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:title="Calendar"
+        android:icon="@drawable/ic_main_bottombar_btn_calendar"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:title="EHR"
+        android:icon="@drawable/ic_main_bottombar_btn_ehr"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:title="Profile"
+        android:icon="@drawable/ic_main_bottombar_btn_profile"
+        app:showAsAction="ifRoom"/>
+</menu>

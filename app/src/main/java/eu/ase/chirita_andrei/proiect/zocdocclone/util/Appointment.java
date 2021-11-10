@@ -6,19 +6,26 @@ import java.util.Date;
 public class Appointment implements Serializable {
 
     private String medicalCategory;
-    private String doctorName;
     private String patientLocation;
-    private Date dateOfAppointment;
-    private String hourOfAppointment;
+    private String doctorName;
+    private String dateOfAppointment;
+    //private String hourOfAppointment;
 //    private String insurancePatient;
 
 
-    public Appointment(String medicalCategory, String doctorName, String patientLocation, Date dateOfAppointment, String hourOfAppointment) {
+//    public Appointment(String medicalCategory,String patientLocation, String doctorName,String dateOfAppointment, String hourOfAppointment) {
+//        this.medicalCategory = medicalCategory;
+//        this.patientLocation = patientLocation;
+//        this.doctorName = doctorName;
+//        this.dateOfAppointment = dateOfAppointment;
+//        this.hourOfAppointment = hourOfAppointment;
+//    }
+
+    public Appointment(String medicalCategory, String patientLocation, String doctorName, String dateOfAppointment) {
         this.medicalCategory = medicalCategory;
-        this.doctorName = doctorName;
         this.patientLocation = patientLocation;
+        this.doctorName = doctorName;
         this.dateOfAppointment = dateOfAppointment;
-        this.hourOfAppointment = hourOfAppointment;
     }
 
     public String getMedicalCategory() {
@@ -45,30 +52,29 @@ public class Appointment implements Serializable {
         this.patientLocation = patientLocation;
     }
 
-    public Date getDateOfAppointment() {
+    public String getDateOfAppointment() {
         return dateOfAppointment;
     }
 
-    public void setDateOfAppointment(Date dateOfAppointment) {
+    public void setDateOfAppointment(String dateOfAppointment) {
         this.dateOfAppointment = dateOfAppointment;
     }
 
-    public String getHourOfAppointment() {
-        return hourOfAppointment;
-    }
-
-    public void setHourOfAppointment(String hourOfAppointment) {
-        this.hourOfAppointment = hourOfAppointment;
-    }
+//    public String getHourOfAppointment() {
+//        return hourOfAppointment;
+//    }
+//
+//    public void setHourOfAppointment(String hourOfAppointment) {
+//        this.hourOfAppointment = hourOfAppointment;
+//    }
 
     @Override
     public String toString() {
-        return "Appointment{" +
-                "medicalCategory='" + medicalCategory + '\'' +
-                ", doctorName='" + doctorName + '\'' +
-                ", patientLocation='" + patientLocation + '\'' +
-                ", dateOfAppointment=" + dateOfAppointment +
-                ", hourOfAppointment='" + hourOfAppointment + '\'' +
-                '}';
+        return "APPOINTMENT" +
+                "\n" +
+                "\nMedical Category: '" + medicalCategory + '\'' +
+                "\nLocation: " + patientLocation + '\'' +
+                "\nDoctor: '" + doctorName + '\'' +
+                "\nDate of Appointment: " + dateOfAppointment;
     }
 }

@@ -40,8 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
     private CheckBox cbSignUpPleaseRead;
     private CheckBox cbSignUpHaveAccept;
 
-    private String email;
-    private String password;
     private Intent intent;
 
     @Override

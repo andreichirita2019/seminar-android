@@ -3,8 +3,8 @@
     <string name="tv_sign_in_or_create_an_account">Sign in or create an account</string>
     <string name="tie_sign_in_password">password</string>
     <string name="tie_sign_in_email_address">email address</string>
-    <string name="tv_main_sign_in_forgot_your_password">Forgot your password?</string>
-    <string name="tv_main_sign_in_new_to_zocdoc">New to ZocDocClone?</string>
+    <string name="tv_login_sign_in_forgot_your_password">Forgot your password?</string>
+    <string name="tv_login_sign_in_new_to_zocdoc">New to ZocDocClone?</string>
     <string name="tv_sign_up_activity_create_an_account">Create an account</string>
     <string name="tv_sign_up_activity_already_have_one_sign_in">Already have one? Sign In</string>
     <string name="tv_sign_up_activity_enter_your_email">Enter your email</string>
@@ -22,12 +22,41 @@
     <string name="cb_please_read_and_accept_the_terms_of_use_and_privacy_policy">Please read and accept the Terms of Use and Privacy Policy</string>
     <string name="cb_i_have_read_and_accept_zocdocclone_authorization">I have read and accept ZocDocClone Authorization!</string>
     <string name="btn_sign_up_activity_save_and_continue">Save and continue</string>
-    <string name="btn_main_activity_sign_in">Sign In</string>
-    <string name="btn_main_activity_create_an_account">Create an account</string>
+    <string name="btn_login_activity_sign_in">Sign In</string>
+    <string name="btn_login_activity_create_an_account">Create an account</string>
 
-    <string-array name="add_faculty_values">
-        <item>CSIE</item>
-        <item>CIG</item>
-        <item>MRK</item>
+    <string-array name="appointment_medical_category_values">
+        <item>Family Medicine</item>
+        <item>Cardiology</item>
+        <item>Radiology</item>
+        <item>Neurology</item>
+        <item>Ophtalmology</item>
+        <item>Dermatology</item>
+        <item>Pediatrics</item>
+    </string-array>
+
+    <string-array name="appointment_doctors_values">
+        <item>Dr.Charles</item>
+        <item>Dr.Willwow</item>
+        <item>Dr.Mary</item>
+        <item>Dr.William</item>
+        <item>Dr.Connory</item>
+        <item>Dr.Isabell</item>
+        <item>Dr.Matthew</item>
+    </string-array>
+
+    <string-array name="appointment_date_values">
+        <item>09:00</item>
+        <item>09:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
     </string-array>
 </resources>
