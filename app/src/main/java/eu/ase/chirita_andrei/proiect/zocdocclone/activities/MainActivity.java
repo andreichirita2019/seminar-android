@@ -1,4 +1,4 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone;
+package eu.ase.chirita_andrei.proiect.zocdocclone.activities;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -9,25 +9,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.Appointment;
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.User;
+import eu.ase.chirita_andrei.proiect.zocdocclone.R;
+import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
+import eu.ase.chirita_andrei.proiect.zocdocclone.network.HttpManager;
+import eu.ase.chirita_andrei.proiect.zocdocclone.util.AppointmentJsonParser;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static String APPOINTMENT_URL = "https://jsonkeeper.com/b/MM13";
+
+    private ListView lvAppointmentsJson;
+    private List<Appointment> appointmentsJson = new ArrayList<>();
 
     private FloatingActionButton fabAddAppointment;
     private ListView lvAppointments;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initComponents();
         addAppointmentLauncher = registerAddAppointmentActivityResultLauncher();
+        loadAppointmentsFromHttp();
     }
 
     private ActivityResultCallback<ActivityResult> getAddAppointmentActivityResultCallback() {
@@ -62,14 +67,47 @@ public class MainActivity extends AppCompatActivity {
         return registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), callback);
     }
 
+    private void loadAppointmentsFromHttp() {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                HttpManager manager = new HttpManager(APPOINTMENT_URL);
+                String result = manager.process();
+                new Handler(getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mainThreadGetAppointmentsFromHttpCallback(result);
+                    }
+                });
+            }
+        };
+        thread.start();
+    }
+
+    private void mainThreadGetAppointmentsFromHttpCallback(String result) {
+        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+        appointmentsJson.addAll(AppointmentJsonParser.fromJson(result));
+        notifyLvAppointmentJsonAdapter();
+    }
+
     private void addLvAppointmentsAdapter() {
         ArrayAdapter<Appointment> adapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, appointments);
         lvAppointments.setAdapter(adapter);
     }
+    private void addLvAppointmentsJsonAdapter() {
+        ArrayAdapter<Appointment> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_list_item_1, appointmentsJson);
+        lvAppointmentsJson.setAdapter(adapter);
+    }
 
     private void notifyLvAppointmentAdapter() {
         ArrayAdapter adapter = (ArrayAdapter) lvAppointments.getAdapter();
+        adapter.notifyDataSetChanged();
+    }
+
+    private void notifyLvAppointmentJsonAdapter() {
+        ArrayAdapter adapter = (ArrayAdapter) lvAppointmentsJson.getAdapter();
         adapter.notifyDataSetChanged();
     }
 
@@ -95,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         fabAddAppointment = findViewById(R.id.fab_main_appointment);
         fabAddAppointment.setOnClickListener(getAddAppointmentClickListener());
         lvAppointments = findViewById(R.id.lv_main_list);
+        lvAppointmentsJson = findViewById(R.id.lv_main_list_json);
         addLvAppointmentsAdapter();
+        addLvAppointmentsJsonAdapter();
     }
 }

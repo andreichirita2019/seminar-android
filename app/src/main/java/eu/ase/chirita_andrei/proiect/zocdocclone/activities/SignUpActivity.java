@@ -1,10 +1,9 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone;
+package eu.ase.chirita_andrei.proiect.zocdocclone.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,15 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
-import java.text.ParseException;
-import java.util.Date;
-import java.util.regex.Pattern;
-
+import eu.ase.chirita_andrei.proiect.zocdocclone.R;
+import eu.ase.chirita_andrei.proiect.zocdocclone.activities.LoginActivity;
 import eu.ase.chirita_andrei.proiect.zocdocclone.util.DateConverter;
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.GenderType;
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.User;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -65,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void sendData(){
         String email = tietEmail.getText().toString().trim();
         String password = tietPassword.getText().toString().trim();
-        intent = new Intent(getApplicationContext(),LoginActivity.class);
+        intent = new Intent(getApplicationContext(), LoginActivity.class);
         intent.putExtra(LoginActivity.EMAIL,email);
         intent.putExtra(LoginActivity.PASSWORD,password);
         startActivity(intent);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     android:background="@color/background_main_grey">
 
     <ListView
@@ -13,8 +13,19 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cl_bottom_bar"
+        app:layout_constraintBottom_toTopOf="@id/lv_main_list_json"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp" />
+
+    <ListView
+        android:id="@+id/lv_main_list_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lv_main_list"
         android:layout_marginTop="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -34,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:backgroundTint="#FFE606"
-            app:fabCradleMargin="15dp"
-            app:fabCradleRoundedCornerRadius="20dp"
+            app:fabCradleMargin="17dp"
+            app:fabCradleRoundedCornerRadius="30dp"
             app:fabCradleVerticalOffset="0.5dp">
 
             <LinearLayout
@@ -62,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="FIND"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="#050505"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -85,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="CALENDAR"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="#050505"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -106,10 +117,12 @@
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="NEW
+                        APPOINTMENT"
                         android:textAlignment="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
+                        android:textColor="#3F51B5"
+                        android:textSize="9sp"
+                        android:textStyle="italic"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -131,7 +144,7 @@
                         android:layout_height="wrap_content"
                         android:text="EHR"
                         android:textAlignment="center"
-                        android:textColor="#732A2A"
+                        android:textColor="#050505"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -154,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:text="PROFILE"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="#050505"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>

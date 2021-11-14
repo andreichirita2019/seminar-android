@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_row_doctor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_row_medical_category"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Doctor name"
+        android:textStyle="bold"
+        android:textSize="22.5sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_row_medical_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_row_doctor_name"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="16dp"
+        android:text="Medical category"
+        android:textStyle="italic"
+        android:textSize="17.5sp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/iv_row_doctor_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_lv_row_view_doctor_icon"
+        android:contentDescription="doctor picture">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/iv_row_date_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_row_medical_category"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_main_bottombar_btn_calendar">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_row_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_row_doctor_icon"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Bucuresti">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/iv_row_location_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tv_row_location"
+        app:layout_constraintTop_toBottomOf="@id/iv_row_doctor_icon"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/ic_lv_row_view_location_icon">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_row_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_row_date_icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_row_medical_category">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

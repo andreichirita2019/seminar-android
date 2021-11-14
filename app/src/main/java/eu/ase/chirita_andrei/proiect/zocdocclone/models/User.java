@@ -1,7 +1,9 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone.util;
+package eu.ase.chirita_andrei.proiect.zocdocclone.models;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import eu.ase.chirita_andrei.proiect.zocdocclone.util.GenderType;
 
 public class User implements Serializable {
 

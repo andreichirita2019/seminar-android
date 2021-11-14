@@ -1,4 +1,4 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone.util;
+package eu.ase.chirita_andrei.proiect.zocdocclone.models;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,17 +9,17 @@ public class Appointment implements Serializable {
     private String patientLocation;
     private String doctorName;
     private String dateOfAppointment;
-    //private String hourOfAppointment;
+    private String hourOfAppointment;
 //    private String insurancePatient;
 
 
-//    public Appointment(String medicalCategory,String patientLocation, String doctorName,String dateOfAppointment, String hourOfAppointment) {
-//        this.medicalCategory = medicalCategory;
-//        this.patientLocation = patientLocation;
-//        this.doctorName = doctorName;
-//        this.dateOfAppointment = dateOfAppointment;
-//        this.hourOfAppointment = hourOfAppointment;
-//    }
+    public Appointment(String medicalCategory,String patientLocation, String doctorName,String dateOfAppointment, String hourOfAppointment) {
+        this.medicalCategory = medicalCategory;
+        this.patientLocation = patientLocation;
+        this.doctorName = doctorName;
+        this.dateOfAppointment = dateOfAppointment;
+        this.hourOfAppointment = hourOfAppointment;
+    }
 
     public Appointment(String medicalCategory, String patientLocation, String doctorName, String dateOfAppointment) {
         this.medicalCategory = medicalCategory;
@@ -60,21 +60,22 @@ public class Appointment implements Serializable {
         this.dateOfAppointment = dateOfAppointment;
     }
 
-//    public String getHourOfAppointment() {
-//        return hourOfAppointment;
-//    }
-//
-//    public void setHourOfAppointment(String hourOfAppointment) {
-//        this.hourOfAppointment = hourOfAppointment;
-//    }
+    public String getHourOfAppointment() {
+        return hourOfAppointment;
+    }
+
+    public void setHourOfAppointment(String hourOfAppointment) {
+        this.hourOfAppointment = hourOfAppointment;
+    }
 
     @Override
     public String toString() {
         return "APPOINTMENT" +
                 "\n" +
-                "\nMedical Category: '" + medicalCategory + '\'' +
-                "\nLocation: " + patientLocation + '\'' +
-                "\nDoctor: '" + doctorName + '\'' +
-                "\nDate of Appointment: " + dateOfAppointment;
+                "\nMedical Category: " + medicalCategory +
+                "\nLocation: " + patientLocation +
+                "\nDoctor: " + doctorName +
+                "\nDate of Appointment: " + dateOfAppointment +
+                "\nHour of Appointment: " + hourOfAppointment;
     }
 }

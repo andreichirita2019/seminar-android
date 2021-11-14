@@ -1,19 +1,15 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone;
+package eu.ase.chirita_andrei.proiect.zocdocclone.activities;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import eu.ase.chirita_andrei.proiect.zocdocclone.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getApplicationContext(),SignUpActivity.class);
+                intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(intent);
             }
         };

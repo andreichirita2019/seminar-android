@@ -1,32 +1,29 @@
-package eu.ase.chirita_andrei.proiect.zocdocclone;
+ package eu.ase.chirita_andrei.proiect.zocdocclone.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.Date;
+import eu.ase.chirita_andrei.proiect.zocdocclone.R;
+import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
 
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.Appointment;
-import eu.ase.chirita_andrei.proiect.zocdocclone.util.DateConverter;
-
-public class AppointmentActivity extends AppCompatActivity {
+ public class AppointmentActivity extends AppCompatActivity {
 
     public static final String ADD_APPOINTMENT_KEY = "ADD_APPOINTMENT_KEY";
 
     private Spinner spnMedicalCategories;
     private TextInputEditText tietPatientLocation;
     private Spinner spnDoctors;
-    private Spinner spnDateofAppointment;
+    private TextInputEditText tietDateofAppointment;
+    private Spinner spnHourofAppointment;
 
     private Button btnBookAnAppointment;
     private Intent intent;
@@ -42,9 +39,10 @@ public class AppointmentActivity extends AppCompatActivity {
     private Appointment buildAppointmentFromComponents() {
         String medicalCategory = spnMedicalCategories.getSelectedItem().toString();
         String patientLocation = tietPatientLocation.getText().toString();
-        String doctors = spnDoctors.getSelectedItem().toString();
-        String datesAppointments = spnDateofAppointment.getSelectedItem().toString();
-        return new Appointment(medicalCategory, patientLocation, doctors, datesAppointments);
+        String doctorName = spnDoctors.getSelectedItem().toString();
+        String datOfAppointment = tietDateofAppointment.getText().toString();
+        String hourOfAppointment = spnHourofAppointment.getSelectedItem().toString();
+        return new Appointment(medicalCategory, patientLocation, doctorName, datOfAppointment, hourOfAppointment);
     }
 
     private boolean isValid() {
@@ -72,11 +70,11 @@ public class AppointmentActivity extends AppCompatActivity {
         spnDoctors.setAdapter(adapter);
     }
 
-    private void addSpinnerDateOfAppointmentAdapter(){
+    private void addSpinnerHourOfAppointmentAdapter(){
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
-                R.array.appointment_date_values,
+                R.array.appointment_hour_values,
                 android.R.layout.simple_spinner_dropdown_item);
-        spnDateofAppointment.setAdapter(adapter);
+        spnHourofAppointment.setAdapter(adapter);
     }
 
     private View.OnClickListener getSaveAppointmentClickListener() {
@@ -97,11 +95,12 @@ public class AppointmentActivity extends AppCompatActivity {
         spnMedicalCategories = findViewById(R.id.spn_appointment_medical_category);
         tietPatientLocation = findViewById(R.id.tie_appointment_patient_location);
         spnDoctors = findViewById(R.id.spn_appointment_doctor);
-        spnDateofAppointment = findViewById(R.id.spn_appointment_date);
+        tietDateofAppointment = findViewById(R.id.tie_appointment_date);
+        spnHourofAppointment = findViewById(R.id.spn_appointment_hour);
         btnBookAnAppointment = findViewById(R.id.btn_appointment_save);
         addSpinnerMedicalCategoriesAdapter();
         addSpinnerDoctorsAdapter();
-        addSpinnerDateOfAppointmentAdapter();
+        addSpinnerHourOfAppointmentAdapter();
         btnBookAnAppointment.setOnClickListener(getSaveAppointmentClickListener());
     }
 }

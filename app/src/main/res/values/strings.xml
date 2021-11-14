@@ -45,7 +45,7 @@
         <item>Dr.Matthew</item>
     </string-array>
 
-    <string-array name="appointment_date_values">
+    <string-array name="appointment_hour_values">
         <item>09:00</item>
         <item>09:30</item>
         <item>10:00</item>
