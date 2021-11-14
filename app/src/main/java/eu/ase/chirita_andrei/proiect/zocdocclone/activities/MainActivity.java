@@ -28,7 +28,7 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.util.AppointmentJsonParser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String APPOINTMENT_URL = "https://jsonkeeper.com/b/MM13";
+    private final static String APPOINTMENT_URL = "https://jsonkeeper.com/b/UDN6";
 
     private ListView lvAppointmentsJson;
     private List<Appointment> appointmentsJson = new ArrayList<>();
