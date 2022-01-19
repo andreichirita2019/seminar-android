@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //incarcare date JSON (Appointments) in Listview (Adapter personalizat)
         //loadAppointmentsFromHttp();
-        loadAppointmentsFromHttp2();
+        //loadAppointmentsFromHttp2();
 
         appointmentService = new AppointmentService(getApplicationContext());
         //preluare lista din baza de date

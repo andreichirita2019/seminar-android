@@ -39,9 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup rgGenderType;
     private Button btnSave;
 
-    private CheckBox cbSignUpPleaseRead;
-    private CheckBox cbSignUpHaveAccept;
-
     private ListView lvUsers;
     private List<User> users = new ArrayList<>();
     private int selectedUserIndex = -1;
