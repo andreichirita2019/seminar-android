@@ -7,14 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import eu.ase.chirita_andrei.proiect.zocdocclone.R;
 import eu.ase.chirita_andrei.proiect.zocdocclone.activities.LoginActivity;
+import eu.ase.chirita_andrei.proiect.zocdocclone.database.firebase.FirebaseService;
+import eu.ase.chirita_andrei.proiect.zocdocclone.models.User;
+import eu.ase.chirita_andrei.proiect.zocdocclone.network.Callback;
 import eu.ase.chirita_andrei.proiect.zocdocclone.util.DateConverter;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -30,9 +37,15 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText tietName;
     private TextInputEditText tietDate;
     private RadioGroup rgGenderType;
-    private Button btnSave; //go to LoginActivity with 2 values (email and password)
+    private Button btnSave;
+
     private CheckBox cbSignUpPleaseRead;
     private CheckBox cbSignUpHaveAccept;
+
+    private ListView lvUsers;
+    private List<User> users = new ArrayList<>();
+    private int selectedUserIndex = -1;
+    private FirebaseService firebaseService;
 
     private Intent intent;
 
@@ -40,20 +53,51 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
         initComponents();
+        firebaseService = FirebaseService.getInstance();
+        firebaseService.attachDataChangedListener(dataChangedCallback());
+    }
+
+    private Callback<List<User>> dataChangedCallback() {
+        return new Callback<List<User>>() {
+            @Override
+            public void runResultOnUiThead(List<User> result) {
+                if (result != null) {
+                    users.clear();
+                    users.addAll(result);
+                }
+            }
+        };
     }
 
     private View.OnClickListener getSaveUserClickListener(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isValid()) {
+                if(isValid()){
+                    if (selectedUserIndex == -1) {
+                        User user = updateUserFromView(null);
+                        firebaseService.insert(user);
+                    } else {
+                        User user = updateUserFromView(users.get(selectedUserIndex).getIdFirebase());
+                        firebaseService.update(user);
+                    }
                     sendData();
                     finish();
                 }
             }
         };
+    }
+
+    private User updateUserFromView(String id) {
+        User user = new User();
+        user.setIdFirebase(id);
+        user.setEmail(tietEmail.getText().toString());
+        user.setConfirmEmail(tietConfirmEmail.getText().toString());
+        user.setPassword(tietPassword.getText().toString());
+        user.setName(tietName.getText().toString());
+        user.setDataBirth(tietDate.getText().toString());
+        return user;
     }
 
     private void sendData(){

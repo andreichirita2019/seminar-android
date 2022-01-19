@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import eu.ase.chirita_andrei.proiect.zocdocclone.R;
 import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
+import eu.ase.chirita_andrei.proiect.zocdocclone.util.DateConverter;
 
  public class AppointmentActivity extends AppCompatActivity {
 
@@ -28,22 +29,91 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
     private Button btnBookAnAppointment;
     private Intent intent;
 
+    private Appointment appointment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
         initComponents();
         intent = getIntent();
+        if(intent.hasExtra(ADD_APPOINTMENT_KEY)){
+            //atunci ne aflam pe operatia de update
+            appointment = intent.getParcelableExtra(ADD_APPOINTMENT_KEY);
+            //trebuie sa incarc obiectul in componente vizuale
+            createViewsFromAppointments();
+        }
     }
 
-    private Appointment buildAppointmentFromComponents() {
-        String medicalCategory = spnMedicalCategories.getSelectedItem().toString();
-        String patientLocation = tietPatientLocation.getText().toString();
-        String doctorName = spnDoctors.getSelectedItem().toString();
-        String datOfAppointment = tietDateofAppointment.getText().toString();
-        String hourOfAppointment = spnHourofAppointment.getSelectedItem().toString();
-        return new Appointment(medicalCategory, patientLocation, doctorName, datOfAppointment, hourOfAppointment);
-    }
+     private void createViewsFromAppointments() {
+        if(appointment == null){
+            return;
+        }
+        spinnerSelectionMedicalCategories();
+        tietPatientLocation.setText(appointment.getPatientLocation());
+        spinnerSelectionDoctors();
+        tietDateofAppointment.setText(appointment.getDateOfAppointment());
+        spinnerSelectionHourOfAppointments();
+     }
+
+     //selectia dintr-un spinner se face pe baza adapterului
+     private void spinnerSelectionHourOfAppointments() {
+         ArrayAdapter adapter = (ArrayAdapter) spnHourofAppointment.getAdapter();
+         for(int i =0;i<adapter.getCount();i++){
+             //parcurgem fiecare element din acel adapter
+             String item = (String) adapter.getItem(i);
+             if(item.equals(appointment.getHourOfAppointment())){
+                 //nu avem setSelection pe Object
+                 spnHourofAppointment.setSelection(i);
+                 break;
+             }
+         }
+     }
+
+     private void spinnerSelectionDoctors() {
+         ArrayAdapter adapter = (ArrayAdapter) spnDoctors.getAdapter();
+         for(int i =0;i<adapter.getCount();i++){
+             //parcurgem fiecare element din acel adapter
+             String item = (String) adapter.getItem(i);
+             if(item.equals(appointment.getDoctorName())){
+                 spnDoctors.setSelection(i);
+                 break;
+             }
+         }
+     }
+
+     private void spinnerSelectionMedicalCategories() {
+         ArrayAdapter adapter = (ArrayAdapter) spnMedicalCategories.getAdapter();
+         for(int i =0;i<adapter.getCount();i++){
+             //parcurgem fiecare element din acel adapter
+             String item = (String) adapter.getItem(i);
+             if(item.equals(appointment.getMedicalCategory())){
+                 spnMedicalCategories.setSelection(i);
+                 break;
+             }
+         }
+     }
+
+     private void createFromViews() {
+         String medicalCategory = spnMedicalCategories.getSelectedItem().toString();
+         String patientLocation = tietPatientLocation.getText().toString();
+         String doctorName = spnDoctors.getSelectedItem().toString();
+         String datOfAppointment = tietDateofAppointment.getText().toString();
+         String hourOfAppointment = spnHourofAppointment.getSelectedItem().toString();
+         if(appointment == null){
+             //operatie de adaugare (insert)
+             //fac obiect de la 0;
+             appointment = new Appointment(medicalCategory,patientLocation,doctorName,datOfAppointment,hourOfAppointment);
+         } else {
+             //operatie de modificare
+             //daca facem obiect nou pe UPDATE, pierdem cheia din BD
+             appointment.setMedicalCategory(medicalCategory);
+             appointment.setPatientLocation(patientLocation);
+             appointment.setDoctorName(doctorName);
+             appointment.setDateOfAppointment(datOfAppointment);
+             appointment.setHourOfAppointment(hourOfAppointment);
+         }
+     }
 
     private boolean isValid() {
         if (tietPatientLocation.getText() == null || tietPatientLocation.getText().toString().trim().length() < 3) {
@@ -56,33 +126,13 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
         return true;
     }
 
-    private void addSpinnerMedicalCategoriesAdapter(){
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
-                R.array.appointment_medical_category_values,
-                android.R.layout.simple_spinner_dropdown_item);
-        spnMedicalCategories.setAdapter(adapter);
-    }
-
-    private void addSpinnerDoctorsAdapter(){
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
-                R.array.appointment_doctors_values,
-                android.R.layout.simple_spinner_dropdown_item);
-        spnDoctors.setAdapter(adapter);
-    }
-
-    private void addSpinnerHourOfAppointmentAdapter(){
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
-                R.array.appointment_hour_values,
-                android.R.layout.simple_spinner_dropdown_item);
-        spnHourofAppointment.setAdapter(adapter);
-    }
-
     private View.OnClickListener getSaveAppointmentClickListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isValid()) {
-                    Appointment appointment = buildAppointmentFromComponents();
+//                    appointment = buildAppointmentFromComponents();
+                    createFromViews();
                     intent.putExtra(ADD_APPOINTMENT_KEY, appointment);
                     setResult(RESULT_OK, intent);
                     finish();
@@ -90,6 +140,27 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
             }
         };
     }
+
+     private void addSpinnerMedicalCategoriesAdapter(){
+         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
+                 R.array.appointment_medical_category_values,
+                 android.R.layout.simple_spinner_dropdown_item);
+         spnMedicalCategories.setAdapter(adapter);
+     }
+
+     private void addSpinnerDoctorsAdapter(){
+         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
+                 R.array.appointment_doctors_values,
+                 android.R.layout.simple_spinner_dropdown_item);
+         spnDoctors.setAdapter(adapter);
+     }
+
+     private void addSpinnerHourOfAppointmentAdapter(){
+         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
+                 R.array.appointment_hour_values,
+                 android.R.layout.simple_spinner_dropdown_item);
+         spnHourofAppointment.setAdapter(adapter);
+     }
 
     private void initComponents() {
         spnMedicalCategories = findViewById(R.id.spn_appointment_medical_category);
@@ -103,4 +174,5 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.models.Appointment;
         addSpinnerHourOfAppointmentAdapter();
         btnBookAnAppointment.setOnClickListener(getSaveAppointmentClickListener());
     }
-}
+
+ }

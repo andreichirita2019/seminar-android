@@ -59,4 +59,29 @@
         <item>14:00</item>
         <item>14:30</item>
     </string-array>
+
+    <string name="main_covid_date_last_update">%1$d/%2$d
+    </string>
+    <string name="card_total_cases_text">TOTAL CASES</string>
+    <string name="cv_total_recovered_text">TOTAL RECOVERED</string>
+    <string name="cv_total_tested_text">TOTAL TESTED</string>
+    <string name="cv_total_death_text">TOTAL DEATHS</string>
+    <string name="card_total_cases_json">1.752.123</string>
+    <string name="card_total_tested_json">10.573.329</string>
+    <string name="card_total_recovered_json">1.606.820</string>
+    <string name="card_total_death_json">54.011</string>
+    <string name="card_date_update_json">11/11</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">ZocDocClone</string>
+    <string name="nav_header_subtitle">The Future of Healthcare</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
 </resources>
