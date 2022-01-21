@@ -6,44 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_top_top_bar"
+        android:id="@+id/cl_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/teal_200">
-        </androidx.appcompat.widget.Toolbar>
-
-        <ImageView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_main_profile_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/ic_baseline_menu_24">
+            app:cardCornerRadius="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profile_photo_card_main">
+            </ImageView>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_main_hello_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/cv_main_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_main_profile_text"
+            android:text="Good morning,"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:textColor="#554C4C"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textAlignment="gravity">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_main_profile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/cv_main_profile_photo"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_hello_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2.5dp"
+            android:text="andrewkhirita"
+            android:textStyle="italic">
+        </TextView>
+
+       <ImageView
+           android:id="@+id/iv_main_settings_topbar"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:src="@drawable/ic_baseline_settings_40"
+           android:layout_marginTop="20dp"
+           android:layout_marginEnd="25dp">
+       </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_main_notification_topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/iv_main_settings_topbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_baseline_notifications_active_40">
         </ImageView>
 
         <ImageView
+            android:id="@+id/iv_main_covid_topbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/iv_main_notification_topbar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_baseline_circle_notifications_24">
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/ic_baseline_covid19">
+
         </ImageView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ListView
             android:id="@+id/lv_main_list"
@@ -55,7 +114,7 @@
             android:layout_marginBottom="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_top_top_bar"/>
+            app:layout_constraintTop_toBottomOf="@id/cl_top_bar"/>
 
         <ListView
             android:id="@+id/lv_main_list_json"
@@ -68,337 +127,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lv_main_list" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_covid19"
-            android:layout_width="match_parent"
-            android:layout_height="265dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cl_bottom_bar"
-            android:layout_marginBottom="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@color/background_main_grey">
-
-            <ImageView
-                android:id="@+id/iv_main_romania_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_romania_covid19_tracker">
-            </ImageView>
-
-            <TextView
-                android:id="@+id/tv_informare_covid19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/iv_main_romania_logo"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:text="INFORMARE #COVID19"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black">
-            </TextView>
-
-            <ImageView
-                android:id="@+id/iv_main_covid_calendar_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_main_date_covid_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_covid_date_last_update"
-                app:layout_constraintStart_toEndOf="@id/tv_informare_covid19"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </ImageView>
-
-            <TextView
-                android:id="@+id/tv_covid_date_last_update"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/card_date_update_json"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_main_covid_calendar_icon"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_covid19_confirmed_cases"
-                android:layout_width="0dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                android:background="#FFFFFF"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/cv_covid19_total_recovered"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_main_romania_logo">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_cv_covid19_confirmed_cases"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/iv_card_covid19_confirmed_cases_icon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_main_total_infected_persons" />
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_confirmed_cases"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@string/card_total_cases_text"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_card_covid19_confirmed_cases_icon"
-                        app:layout_constraintStart_toEndOf="@+id/iv_card_covid19_confirmed_cases_icon"
-                        app:layout_constraintTop_toTopOf="@+id/iv_card_covid19_confirmed_cases_icon"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:textColor="#DF0C0C"
-                        android:textSize="15sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_confirmed_cases"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/card_total_cases_json"
-                        app:layout_constraintStart_toStartOf="@+id/iv_card_covid19_confirmed_cases_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_card_covid19_confirmed_cases_icon"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_people_confirmed_cases"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="People"
-                        app:layout_constraintStart_toStartOf="@+id/tv_card_covid19_total_confirmed_cases"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_card_covid19_total_confirmed_cases"
-                        android:textStyle="normal"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_covid19_total_tested"
-                android:layout_width="0dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"
-                android:background="#FFFFFF"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/cv_covid19_total_death"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cv_covid19_confirmed_cases">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_cv_covid19_total_tested"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/iv_card_covid19_total_tested_icon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_main_totaltested_persons" />
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_tested_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@string/cv_total_tested_text"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_card_covid19_total_tested_icon"
-                        app:layout_constraintStart_toEndOf="@+id/iv_card_covid19_total_tested_icon"
-                        app:layout_constraintTop_toTopOf="@+id/iv_card_covid19_total_tested_icon"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:textColor="#070975"
-                        android:textSize="15sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_tested"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/card_total_tested_json"
-                        app:layout_constraintStart_toStartOf="@+id/iv_card_covid19_total_tested_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_card_covid19_total_tested_icon"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_people_total_tested"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="People"
-                        app:layout_constraintStart_toStartOf="@+id/tv_card_covid19_total_tested"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_card_covid19_total_tested" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_covid19_total_recovered"
-                android:layout_width="0dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="8dp"
-                android:background="#FFFFFF"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBaseline_toBottomOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/cv_covid19_confirmed_cases"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cv_covid19_confirmed_cases"
-                app:layout_constraintTop_toTopOf="@+id/cv_covid19_confirmed_cases">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_cv_covid19_total_recovered"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/iv_card_covid19_total_recovered_icon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_main_totalrecovered_persons" />
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_recovered_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@string/cv_total_recovered_text"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_card_covid19_total_recovered_icon"
-                        app:layout_constraintStart_toEndOf="@+id/iv_card_covid19_total_recovered_icon"
-                        app:layout_constraintTop_toTopOf="@+id/iv_card_covid19_total_recovered_icon"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:textColor="#077564"
-                        android:textSize="15sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_recovered"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/card_total_recovered_json"
-                        app:layout_constraintStart_toStartOf="@+id/iv_card_covid19_total_recovered_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_card_covid19_total_recovered_icon"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_people_total_recovered"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="People"
-                        app:layout_constraintStart_toStartOf="@+id/tv_card_covid19_total_recovered"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_card_covid19_total_recovered" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_covid19_total_death"
-                android:layout_width="0dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="8dp"
-                android:background="#FFFFFF"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/cv_covid19_total_tested"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cv_covid19_total_tested"
-                app:layout_constraintTop_toTopOf="@+id/cv_covid19_total_tested">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_cv_covid19_total_death"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/iv_card_covid19_total_death_icon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_main_totaldeceased_persons" />
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_death_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="@string/cv_total_death_text"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_card_covid19_total_death_icon"
-                        app:layout_constraintStart_toEndOf="@+id/iv_card_covid19_total_death_icon"
-                        app:layout_constraintTop_toTopOf="@+id/iv_card_covid19_total_death_icon"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="bold"
-                        android:textColor="#010C0B"
-                        android:textSize="15sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_total_death"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/card_total_death_json"
-                        app:layout_constraintStart_toStartOf="@+id/iv_card_covid19_total_death_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_card_covid19_total_death_icon"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
-
-                    <TextView
-                        android:id="@+id/tv_card_covid19_people_total_death"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="People"
-                        app:layout_constraintStart_toStartOf="@+id/tv_card_covid19_total_death"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_card_covid19_total_death" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/cl_bottom_bar"
@@ -434,13 +162,13 @@
                             android:id="@+id/iv_main_search"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_main_bottombar_btn_search" />
+                            app:srcCompat="@drawable/ic_baseline_account_balance_wallet_24" />
 
                         <TextView
                             android:id="@+id/tv_main_search"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="FIND"
+                            android:text="WALLET"
                             android:textAlignment="center"
                             android:textSize="12sp"
                             android:textStyle="bold"/>

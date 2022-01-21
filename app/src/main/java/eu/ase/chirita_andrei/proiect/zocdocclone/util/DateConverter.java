@@ -4,6 +4,8 @@ import androidx.room.TypeConverter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -12,6 +14,9 @@ public class DateConverter {
     private static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
     private static final SimpleDateFormat formatterCovidJSON = new SimpleDateFormat("dd/MM",Locale.UK);
 
+
+    public DateConverter() throws ParseException {
+    }
 
     @TypeConverter
     public static Date fromString(String value) {

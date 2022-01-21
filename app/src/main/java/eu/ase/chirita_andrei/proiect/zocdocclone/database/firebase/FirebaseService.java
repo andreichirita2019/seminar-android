@@ -8,6 +8,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
+
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,7 +110,11 @@ public class FirebaseService {
                     userList.add(user);
                 }
                 //ruleaza pe un alt thread
-                callback.runResultOnUiThead(userList);
+                try {
+                    callback.runResultOnUiThead(userList);
+                } catch (JSONException | ParseException e) {
+                    e.printStackTrace();
+                }
             }
 
             //daca are probleme nu se va apela onDataChanged ci onCancelled

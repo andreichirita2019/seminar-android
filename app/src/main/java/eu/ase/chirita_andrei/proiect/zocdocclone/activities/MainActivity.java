@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,12 +37,11 @@ import eu.ase.chirita_andrei.proiect.zocdocclone.util.AppointmentJsonParser;
 public class MainActivity extends AppCompatActivity {
 
     //private ScrollView scrollView;
-    private AsyncTaskRunner asyncTaskRunner;
+    private AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner();
 
     //o instanta concreta care imi va intoarce un vector de appointments
     private final static String APPOINTMENT_URL = "https://jsonkeeper.com/b/UDN6";
     //private final static String APPOINTMENT_URL = "https://jsonkeeper.com/b/WZOH";
-    private final static String COVID_19_URL_ROMANIA = "https://www.graphs.ro/json_apify.php";
 
     private ListView lvAppointmentsJson;
     private List<Appointment> appointmentsJson = new ArrayList<>();
@@ -54,11 +54,7 @@ public class MainActivity extends AppCompatActivity {
     //creez un nou obiect de tip Launcher pentru a face diferenta in memoria Java, ce fel de informatii transmit (fie ca inserez in database, fie ca fac update sau delete)
     private ActivityResultLauncher<Intent> updateAppointmentLauncher;
 
-    //COVID 19 TRACKER
-    public static TextView tvTotalCases;
-    public static TextView tvTotalTested;
-    public static TextView tvTotalRecovered;
-    public static TextView tvTotalDeceased;
+    private ImageView ivCovid19;
 
     private AppointmentService appointmentService;
 
@@ -67,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initComponents();
+        //loadAppointmentsFromHttp2();
         addAppointmentLauncher = addAppointmentActivityResultLauncher();
         updateAppointmentLauncher = updateAppointmentActivityResultLauncher();
 
         //incarcare date JSON (Appointments) in Listview (Adapter personalizat)
         //loadAppointmentsFromHttp();
-        //loadAppointmentsFromHttp2();
 
         appointmentService = new AppointmentService(getApplicationContext());
         //preluare lista din baza de date
@@ -194,11 +190,24 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
+    private View.OnClickListener getCovid19InformationClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CovidActivity.class);
+                startActivity(intent);
+            }
+        };
+    }
+
     private void initComponents() {
-        tvTotalCases = findViewById(R.id.tv_card_covid19_confirmed_cases);
-        tvTotalTested = findViewById(R.id.tv_card_covid19_total_tested);
-        tvTotalRecovered = findViewById(R.id.tv_card_covid19_total_recovered);
-        tvTotalDeceased = findViewById(R.id.tv_card_covid19_total_death);
+//        tvTotalCases = findViewById(R.id.tv_card_covid19_confirmed_cases);
+//        tvTotalTested = findViewById(R.id.tv_card_covid19_total_tested);
+//        tvTotalRecovered = findViewById(R.id.tv_card_covid19_total_recovered);
+//        tvTotalDeceased = findViewById(R.id.tv_card_covid19_total_death);
+
+        ivCovid19 = findViewById(R.id.iv_main_covid_topbar);
+        ivCovid19.setOnClickListener(getCovid19InformationClickListener());
 
         fabAddAppointment = findViewById(R.id.fab_main_appointment);
         fabAddAppointment.setOnClickListener(getAddAppointmentClickListener());
@@ -319,30 +328,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-        private void loadAppointmentsFromHttp2() {
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                HttpManager manager = new HttpManager(APPOINTMENT_URL);
-                String result = manager.process();
-                //sa observe si sa ajute alte thread-uri sa impinga rezultatele lor spre thread-ul principal
-                //MainLooper (referinta catre activitatea care ruleaza pe ecran (nu neaparat principala))
-                //la nivel de post accepta un obiect de tipul Runnable
-                new Handler(getMainLooper()).post(new Runnable() {
-                    @Override
-                    //abia aici ne aflam in MAIN THREAD (MAIN ACTVIITY)
-                    //putem apela orice metoda din app-ul nostru
-                    public void run() {
-                        mainThreadGetAppointmentsFromHttpCallback(result);
-                    }
-                });
-            }
-        };
-        thread.start();
-    }
+//        private void loadAppointmentsFromHttp2() {
+//        Thread thread = new Thread() {
+//            @Override
+//            public void run() {
+//                HttpManager manager = new HttpManager(APPOINTMENT_URL);
+//                String result = manager.process();
+//                //sa observe si sa ajute alte thread-uri sa impinga rezultatele lor spre thread-ul principal
+//                //MainLooper (referinta catre activitatea care ruleaza pe ecran (nu neaparat principala))
+//                //la nivel de post accepta un obiect de tipul Runnable
+//                new Handler(getMainLooper()).post(new Runnable() {
+//                    @Override
+//                    //abia aici ne aflam in MAIN THREAD (MAIN ACTVIITY)
+//                    //putem apela orice metoda din app-ul nostru
+//                    public void run() {
+//                        mainThreadGetAppointmentsFromHttpCallback(result);
+//                    }
+//                });
+//            }
+//        };
+//        thread.start();
+//    }
 
-    private void mainThreadGetAppointmentsFromHttpCallback(String result) {
-        appointments.addAll(AppointmentJsonParser.fromJson(result));
-    }
+//    private void mainThreadGetAppointmentsFromHttpCallback(String result) {
+//        appointments.addAll(AppointmentJsonParser.fromJson(result));
+//    }
 
 }

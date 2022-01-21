@@ -4,6 +4,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import org.json.JSONException;
+
+import java.text.ParseException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -78,7 +81,11 @@ public class AsyncTaskRunner {
         return new Runnable() {
             @Override
             public void run() {
-                mainThreadOperation.runResultOnUiThead(result);
+                try {
+                    mainThreadOperation.runResultOnUiThead(result);
+                } catch (JSONException | ParseException e) {
+                    e.printStackTrace();
+                }
             }
         };
     }

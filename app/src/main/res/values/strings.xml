@@ -62,7 +62,7 @@
 
     <string name="main_covid_date_last_update">%1$d/%2$d
     </string>
-    <string name="card_total_cases_text">TOTAL CASES</string>
+    <string name="card_total_cases_text">TOTAL INFECTED</string>
     <string name="cv_total_recovered_text">TOTAL RECOVERED</string>
     <string name="cv_total_tested_text">TOTAL TESTED</string>
     <string name="cv_total_death_text">TOTAL DEATHS</string>
